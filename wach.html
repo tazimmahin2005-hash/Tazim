@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>বাংলা ডিজিটাল ঘড়ি</title>
+  <style>
+    body {
+      background: #282c34;
+      color: #61dafb;
+      font-family: 'SolaimanLipi', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      user-select: none;
+    }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #ffca28;
+      text-shadow: 1px 1px 4px #000;
+    }
+    #clock {
+      font-size: 4rem;
+      font-weight: bold;
+      background: #20232a;
+      padding: 20px 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #61dafb88;
+      letter-spacing: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>বাংলা ডিজিটাল ঘড়ি</h2>
+  <div id="clock"></div>
+
+  <script>
+    function convertToBengali(number) {
+      const bengaliDigits = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+      return number.toString().split('').map(d => bengaliDigits[d] || d).join('');
+    }
+
+    function getBanglaPeriod(hour) {
+      if (hour >= 4 && hour < 12) return 'সকাল';
+      if (hour >= 12 && hour < 16) return 'দুপুর';
+      if (hour >= 16 && hour < 18) return 'বিকেল';
+      if (hour >= 18 && hour < 20) return 'সন্ধ্যা';
+      return 'রাত';
+    }
+
+    function to12HourFormat(hour) {
+      hour = hour % 12;
+      return hour === 0 ? 12 : hour;
+    }
+
+    function updateClock() {
+      const now = new Date();
+      let hour = now.getHours();
+      let minute = now.getMinutes();
+      let second = now.getSeconds();
+
+      const period = getBanglaPeriod(hour);
+
+      hour = to12HourFormat(hour);
+
+      // দুই অঙ্কে রূপান্তর
+      hour = (hour < 10) ? '0' + hour : hour;
+      minute = (minute < 10) ? '0' + minute : minute;
+      second = (second < 10) ? '0' + second : second;
+
+      const banglaTime = convertToBengali(hour) + ':' + convertToBengali(minute) + ':' + convertToBengali(second);
+
+      document.getElementById('clock').innerText = period + ' ' + banglaTime;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+</body>
+</html>

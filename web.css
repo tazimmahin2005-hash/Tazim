@@ -1,0 +1,80 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #ffffff);
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Texts */
+h2, h3 {
+    color: #00796b;
+    margin: 20px 0 10px;
+    text-align: center;
+}
+
+/* Marquee Styling */
+marquee {
+    background-color: #b2dfdb;
+    padding: 10px;
+    color: #004d40;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #00695c;
+    font-size: 18px;
+    display: inline-block;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #004d40;
+    transform: translateX(5px);
+}
+
+/* Button Styling */
+button {
+    background-color: #00796b;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+button a {
+    color: white;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #004d40;
+}
+
+/* Responsive Layout */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    a {
+        font-size: 16px;
+    }
+
+    h2, h3 {
+        font-size: 20px;
+    }
+}
