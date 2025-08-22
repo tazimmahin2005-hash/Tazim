@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>বাংলা ঘড়ি</title>
+</head>
+<body>
+
+<h2>বাংলা ডিজিটাল ঘড়ি</h2>
+<h1 id="clock"></h1>
+
+<script>
+  function convertToBengali(number) {
+    const bengaliDigits = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+    return number.toString().split('').map(d => bengaliDigits[d] || d).join('');
+  }
+
+  function getBanglaPeriod(hour) {
+    if (hour >= 4 && hour < 12) return 'সকাল';
+    if (hour >= 12 && hour < 16) return 'দুপুর';
+    if (hour >= 16 && hour < 18) return 'বিকেল';
+    if (hour >= 18 && hour < 20) return 'সন্ধ্যা';
+    return 'রাত';
+  }
+
+  function updateClock() {
+    const now = new Date();
+    let hour = now.getHours();
+    let minute = now.getMinutes();
+    let second = now.getSeconds();
+
+    const period = getBanglaPeriod(hour);
+
+    // দুই অঙ্কে রূপান্তর
+    hour = (hour < 10) ? '0' + hour : hour;
+    minute = (minute < 10) ? '0' + minute : minute;
+    second = (second < 10) ? '0' + second : second;
+
+    // বাংলা রূপান্তর
+    const banglaTime = convertToBengali(hour) + ':' + convertToBengali(minute) + ':' + convertToBengali(second);
+
+    document.getElementById('clock').innerText = period + ' ' + banglaTime;
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
+
+</body>
+</html>
