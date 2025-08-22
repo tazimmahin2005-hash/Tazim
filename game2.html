@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCQ বাংলা কুইজ</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #fff;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h2 {
+      text-align: center;
+      color: #00f0ff;
+    }
+    form {
+      max-width: 700px;
+      margin: auto;
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    button {
+      background: #00f0ff;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #00aabb;
+      color: #fff;
+    }
+    #result {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #0ff;
+    }
+  </style>
+</head>
+<body>
+
+<h2>বাংলা কুইজ</h2>
+
+<form id="quizForm">
+  <p>১. বাংলাদেশের জাতীয় ফুল কোনটি?</p>
+  <input type="radio" name="q1" value="wrong">গোলাপ<br>
+  <input type="radio" name="q1" value="correct">শাপলা<br>
+  <input type="radio" name="q1" value="wrong">জবা<br>
+  <input type="radio" name="q1" value="wrong">বেলি<br><br>
+
+  <p>২. রবীন্দ্রনাথ ঠাকুর কোন ভাষায় কবিতা লিখতেন?</p>
+  <input type="radio" name="q2" value="correct">বাংলা<br>
+  <input type="radio" name="q2" value="wrong">হিন্দি<br>
+  <input type="radio" name="q2" value="wrong">তামিল<br>
+  <input type="radio" name="q2" value="wrong">ইংরেজি<br><br>
+
+  <p>৩. স্বাধীনতা যুদ্ধ শুরু হয়েছিল কোন সালে?</p>
+  <input type="radio" name="q3" value="correct">2024<br>
+  <input type="radio" name="q3" value="wrong">১৯৫২<br>
+  <input type="radio" name="q3" value="wrong">১৯৬৫<br>
+  <input type="radio" name="q3" value="wrong">১৯৪৭<br><br>
+
+  <p>৪. টাচ স্ক্রিন ইনপুট নাকি আউটপুট?</p>
+  <input type="radio" name="q4" value="wrong">আউটপুট<br>
+  <input type="radio" name="q4" value="wrong">কিছুই না<br>
+  <input type="radio" name="q4" value="correct">ইনপুট আউটপুট দুটোই<br>
+  <input type="radio" name="q4" value="wrong">পারিনা<br><br>
+
+  <p>৫. পরীক্ষায় কি নকল করা ঠিক?</p>
+  <input type="radio" name="q5" value="wrong">আমি জানিনা<br>
+  <input type="radio" name="q5" value="wrong">না<br>
+  <input type="radio" name="q5" value="correct">ঠিক<br>
+  <input type="radio" name="q5" value="wrong">শিক্ষক বললে করতে হবে<br><br>
+
+  <button type="button" onclick="checkAnswers()">জমা দিন</button>
+</form>
+
+<p id="result"></p>
+
+<script>
+  function checkAnswers() {
+    const form = document.getElementById('quizForm');
+    const answers = form.querySelectorAll('input[type="radio"]:checked');
+
+    let score = 0;
+    answers.forEach(answer => {
+      if (answer.value === 'correct') {
+        score++;
+      }
+    });
+
+    const total = 5;
+    document.getElementById('result').innerText = 'ফলাফল: ' + score + ' / ' + total;
+  }
+</script>
+
+</body>
+</html>

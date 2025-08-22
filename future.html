@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced Features</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #f0f0f0;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      color: #00f0ff;
+      text-shadow: 0 0 10px #00f0ff;
+    }
+    .section {
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .section h3 {
+      color: #0ff;
+      margin-top: 0;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .links a {
+      background: #00f0ff;
+      color: #000;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .links a:hover {
+      background: #00aabb;
+      color: #fff;
+    }
+    @media(max-width:600px){
+      header h1{
+        font-size:1.6rem;
+      }
+      .links a{
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>এখানে আপনি বিভিন্ন ধরনের সুবিধা পাবেন</h1>
+  </header>
+
+  <div class="section">
+    <h3>🧮 গাণিতিক বিষয়</h3>
+    <div class="links">
+      <a href="calculator.html" onclick="playSound()">ক্যালকুলেটর</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>🕒 সময় বিষয়ে</h3>
+    <div class="links">
+      <a href="wach.html" onclick="playSound()">বর্তমান সময়</a>
+      <a href="twach.html" onclick="playSound()">স্টপওয়াচ</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>🎮 ছোট বাচ্চাদের গেম</h3>
+    <div class="links">
+      <a href="game1.html" onclick="playSound()">রক-পেপার-সিজর</a>
+      <a href="game2.html" onclick="playSound()">বাংলা কুইজ</a>
+    </div>
+  </div>
+
+
+
+
+  
+
+  <audio id="clickSound" src="Tazim2.mp4"></audio>
+
+  <script>
+    function playSound(){
+      document.getElementById('clickSound').play();
+    }
+  </script>
+</body>
+</html>
